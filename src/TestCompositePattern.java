@@ -8,13 +8,27 @@ public class TestCompositePattern {
         htmlParent.setStartTag("<html>");
         htmlParent.setEndTag("</html");
 
+        HTMLTag infoTag = new HTMLCompositeElement("<info>");
+        infoTag.setStartTag("<info>");
+        infoTag.setEndTag("</info>");
+
+        htmlParent.addChildren(infoTag);
+
+        HTMLTag paragraph = new HTMLLeafElement("<P>");
+        paragraph.setStartTag("<P>");
+        paragraph.setEndTag("</P>");
+        paragraph.setTagBody("Hello World!");
+
+        infoTag.addChildren(paragraph);
+
+
         HTMLTag bodyTag = new HTMLCompositeElement("<body>");
         bodyTag.setStartTag("<body>");
         bodyTag.setEndTag("</body>");
 
         htmlParent.addChildren(bodyTag);
 
-        HTMLTag paragraph = new HTMLLeafElement("<P>");
+        paragraph = new HTMLLeafElement("<P>");
         paragraph.setStartTag("<P>");
         paragraph.setEndTag("</P>");
         paragraph.setTagBody("Hello World!");
